@@ -9,12 +9,12 @@ h1 {
   margin-top: 0;
   margin-bottom: 15px;
   color: 272C4E;
-  background-color: EECA7D;
+  background-color: #EECA7D;
 }
 
 h2 {
   font-size: 30px;
-  color: 272C4E;
+  color: #272C4E;
 }
 
 .aclaracion {
@@ -28,7 +28,7 @@ h1, h2, p {
 
 .menu {
   width: 80%;
-  background-color: EECA7D;
+  background-color: #EECA7D;
   margin-left: auto;
   margin-right: auto;
   padding: 20px;
@@ -44,8 +44,8 @@ img {
 
 hr {
   height: 2px;
-  background-color: 272C4E;
-  border-color: 272C4E;
+  background-color: #272C4E;
+  border-color: #272C4E;
 }
 
 .bottom-line {
