@@ -8,7 +8,7 @@ h1 {
   font-size: 50px;
   margin-top: 0;
   margin-bottom: 15px;
-  color: 272C4E;
+  color: #272C4E;
   background-color: #EECA7D;
 }
 
@@ -19,7 +19,8 @@ h2 {
 
 .aclaracion {
   font-style: italic;
-  margin: 5px
+  margin: 5px;
+  color: #272C4E;
 }
 
 h1, h2, p {
