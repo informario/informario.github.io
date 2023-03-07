@@ -1,6 +1,6 @@
 body {
   background-image: url(https://drive.google.com/uc?export=view&id=1e616fEsmOfbcMua9yHyjXr1ZsGB1ywew);
-  font-family: sans-serif;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   padding: 20px;
   color:#ffffff
 }
@@ -53,9 +53,6 @@ hr {
   margin-top: 25px;
 }
 
-h1, h2 {
-  font-family: Gill Sans, Gill Sans MT, Calibri, sans-serif;
-}
 
 .item p {
   display: inline-block;
@@ -83,19 +80,19 @@ footer {
 }
 
 a {
-  color: black;
+  color: white;
 }
 
 a:visited {
-  color: black;
+  color: rgb(195, 137, 250);
 }
 
 a:hover {
-  color: brown;
+  color: rgb(255, 118, 255);
 }
 
 a:active {
-  color: brown;
+  color: rgb(142, 142, 248);
 }
 
 section[type="indice links"]{

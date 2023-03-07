@@ -15,22 +15,23 @@
         <label id="name-label">Ingresá tu nombre:<input id="name" name="nombre" type="text" required></label>
         <label id="surname-label">Ingresá tu Apellido:<input id="apellido" name="apellido" type="text" required></label>
         <label id="email-label">Ingresá tu correo electrónico:<input id="email" name="email" type="email" required></label>
-        <label>Crea una contraseña:<input id="password" name="password" type="password" pattern="[a-z0-9]{8,}" required></label>
+        <label>Crea una contraseña:<input id="password" name="password" type="password" pattern="([a-zA-Z\d]){8,}" required></label>
+        <p type="aclaracion">La contraseña debe constar de caracteres  alfanuméricos, y al menos 8 de ellos</p>
       </fieldset>
 
       <fieldset>
-        <label><input id="novedades" type="checkbox" required name="novedades" class="inline" />Deseo recibir correos con las novedades (recomendado)</label>
+        <label><input id="novedades" type="checkbox" name="novedades" class="inline" />Deseo recibir correos con las novedades (recomendado)</label>
       </fieldset>
 
       <fieldset>
-        <label id="number-label">Ingresá tu edad:<label for="age">Input your age (years): <input id="number" type="number" name="age" min="13" max="120"></label>
-        <label>Cual es tu relación conmigo:
+        <label for="age">Ingresá tu edad: <input id="number" type="number" name="age" min="13" max="120"></label>
+        <label id="referal-label">De donde nos conocemos?:
           <select id="referrer" name="referrer">
             <option value="">(Elige una)</option>
             <option value="1">Amigo o conocido</option>
             <option value="2">Relación laboral</option>
-            <option value="3">Desconocido</option>
-            <option value="4">Other</option>
+            <option value="3">Redes sociales</option>
+            <option value="4">Otro</option>
           </select></label>
       </fieldset>
       <input type="submit" value="Registrarse" />

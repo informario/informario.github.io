@@ -1,5 +1,5 @@
 body{
-  font-family:Lucida Sans Unicode;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   background-image: linear-gradient(to bottom, rgba(30,30,60,1), rgba(10,10,30,1),rgba(30,30,60,1));
   color: #ffffff;
 }
@@ -11,8 +11,9 @@ h1{
 
 label{
   display:block;
-  margin:3%
-  color:ffffff;
+  margin:3%;
+  color:#ffffff;
+  text-align:center;
 }
 
 p{
@@ -33,6 +34,9 @@ fieldset{
 }
 fieldset:last-of-type {
   border-bottom: none;
+}
+input{
+  color:#ffffff;
 }
 input[type="text"]{
   width:100%;
@@ -62,7 +66,12 @@ select{
   width:15em;
   height:2em;
   background-color:#101030;
-  color:ffffff;
+}
+select:invalid{
+  color:#ffffff;
+}
+select:valid{
+  color:#ffffff;
 }
 input[type="checkbox"]{
   width:5%
