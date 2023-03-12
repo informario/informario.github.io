@@ -1,14 +1,14 @@
 :root {
     --x-ship:20px;
     --y-ship:20px;
+    --x-enemy0:20px;
+    --y-enemy0:20px;
     --x-enemy1:20px;
     --y-enemy1:20px;
     --x-enemy2:20px;
     --y-enemy2:20px;
     --x-enemy3:20px;
     --y-enemy3:20px;
-    --x-enemy4:20px;
-    --y-enemy4:20px;
 
 }
 
@@ -46,11 +46,19 @@ body{
     left:var(--x-ship);
 }
 
+.enemy0 {
+    position : absolute;
+    width : 20px;
+    height : 20px;
+    background-color:crimson;
+    top:var(--y-enemy0);
+    left:var(--x-enemy0);
+}
 .enemy1 {
     position : absolute;
     width : 20px;
     height : 20px;
-    background-color : red;
+    background-color : crimson;
     top:var(--y-enemy1);
     left:var(--x-enemy1);
 }
@@ -58,7 +66,7 @@ body{
     position : absolute;
     width : 20px;
     height : 20px;
-    background-color : red;
+    background-color : crimson;
     top:var(--y-enemy2);
     left:var(--x-enemy2);
 }
@@ -66,15 +74,7 @@ body{
     position : absolute;
     width : 20px;
     height : 20px;
-    background-color : red;
+    background-color : crimson;
     top:var(--y-enemy3);
     left:var(--x-enemy3);
-}
-.enemy4 {
-    position : absolute;
-    width : 20px;
-    height : 20px;
-    background-color : red;
-    top:var(--y-enemy4);
-    left:var(--x-enemy4);
 }
