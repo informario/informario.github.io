@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<!-- Esto necesita refactor por todos lados: redundancia de código, abuso de hardcodeo -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Avoid</title>
+    <link href="styles.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <section>
+      <div class="enemy1"></div>
+      <div class="enemy2"></div>
+      <div class="enemy3"></div>
+      <div class="enemy4"></div>
+      <div class="ship"></div>
+      <div class="borde"></div>
+    </section>
+    <script>
+      let ship = {
+        x:240,
+        y:240,
+
+        moveUp:function(){
+          if (this.llegoBorde()==false){
+            this.y-=2;
+          }
+        },
+        moveDown:function(){
+          if (this.llegoBorde()==false){
+            this.y+=2;
+          }
+        },
+        moveLeft:function(){
+          if (this.llegoBorde()==false){
+            this.x-=2;
+          }
+        },
+        moveRight:function(){
+          if (this.llegoBorde()==false){
+            this.x+=2;
+          }
+        },
+        llegoBorde:function(){
+          if(this.x<2){
+            this.x=2;
+            return true;
+          }
+          if(this.x>481){
+            this.x=481;
+            return true;
+          }
+          if(this.y<2){
+            this.y=2;
+            return true;
+          }
+          if(this.y>481){
+            this.y=481;
+            return true;
+          }
+          return false;
+        }
+      };
+      
+      class enemy {
+        constructor(){
+          this.vecx=Math.random() * (2) -1;
+          this.vecy=Math.pow((1.0-Math.pow(this.vecx,2)),0.5);
+          if(Math.random()>=.5){
+            this.vecy=-this.vecy;
+          }
+          let rnd = Math.random()*479 + 2;
+          if(this.vecx>.5){
+            this.x=2;
+            this.y=rnd;
+          }
+          else if(this.vecx<=-.5){
+            this.x=481;
+            this.y=rnd;
+          }
+          else if(this.vecy>.5){
+            this.y=2;
+            this.x=rnd;
+          }
+          else if(this.vecy<=-.5){
+            this.y=481;
+            this.x=rnd;
+          }
+          this.vecx*=2;
+          this.vecy*=2;
+        }
+        moveFoward(){
+          this.x+=this.vecx;
+          this.y+=this.vecy;
+        }
+        llegoBorde(){
+          if(this.x<2){
+            this.x=2;
+            return true;
+          }
+          if(this.x>481){
+            this.x=481;
+            return true;
+          }
+          if(this.y<2){
+            this.y=2;
+            return true;
+          }
+          if(this.y>481){
+            this.y=481;
+            return true;
+          }
+          return false;
+        }
+      };
+
+      let root = document.documentElement;
+      let keyboard=[false,false,false,false];
+      //              w     s     a     d
+
+      root.addEventListener("keydown", e => {
+        switch (e.key) {
+          case "w":
+            keyboard[0]=true;
+          break;
+          case "s":
+            keyboard[1]=true;
+          break;
+          case "a":
+            keyboard[2]=true;
+          break;
+          case "d":
+            keyboard[3]=true;
+          break;
+        }  
+      });
+      root.addEventListener("keyup", e => {
+        switch (e.key) {
+          case "w":
+            keyboard[0]=false;
+          break;
+          case "s":
+            keyboard[1]=false;
+          break;
+          case "a":
+            keyboard[2]=false;
+          break;
+          case "d":
+            keyboard[3]=false;
+          break;
+        }  
+      });
+      
+      E1=new enemy();
+      E2=new enemy();
+      E3=new enemy();
+      E4=new enemy();
+      let score=0;
+
+      function gameloop(){
+        if(keyboard[0]==true) ship.moveUp();
+        if(keyboard[1]==true) ship.moveDown();
+        if(keyboard[2]==true) ship.moveLeft();
+        if(keyboard[3]==true) ship.moveRight();
+        root.style.setProperty('--x-ship', ship.x + "px");
+        root.style.setProperty('--y-ship', ship.y + "px");
+        E1.moveFoward();
+        root.style.setProperty('--x-enemy1', E1.x + "px");
+        root.style.setProperty('--y-enemy1', E1.y + "px");
+        E2.moveFoward();
+        root.style.setProperty('--x-enemy2', E2.x + "px");
+        root.style.setProperty('--y-enemy2', E2.y + "px");
+        E3.moveFoward();
+        root.style.setProperty('--x-enemy3', E3.x + "px");
+        root.style.setProperty('--y-enemy3', E3.y + "px");
+        E4.moveFoward();
+        root.style.setProperty('--x-enemy4', E4.x + "px");
+        root.style.setProperty('--y-enemy4', E4.y + "px");
+        if(E1.llegoBorde()){
+          score++;
+          document.getElementById('output').innerHTML = score;
+          delete E1;
+          E1=new enemy();
+        }
+        if(E2.llegoBorde()){
+          score++;
+          document.getElementById('output').innerHTML = score;
+          delete E2;
+          E2=new enemy();
+        }
+        if(E3.llegoBorde()){
+          score++;
+          document.getElementById('output').innerHTML = score;
+          delete E3;
+          E3=new enemy();
+        }
+        if(E4.llegoBorde()){
+          score++;
+          document.getElementById('output').innerHTML = score;
+          delete E4;
+          E4=new enemy();
+        }
+        if(E1.x>ship.x-20&&E1.x<ship.x+20&&E1.y>ship.y-20&&E1.y<ship.y+20){
+          alert("Perdiste");
+          delete E1;
+          E1=new enemy;
+          score=0;
+          document.getElementById('output').innerHTML = score;
+          keyboard=[false,false,false,false];
+        }
+        if(E2.x>ship.x-20&&E2.x<ship.x+20&&E2.y>ship.y-20&&E2.y<ship.y+20){
+          alert("Perdiste");
+          delete E2;
+          E2=new enemy;
+          score=0;
+          document.getElementById('output').innerHTML = score;
+          keyboard=[false,false,false,false];
+        }
+        if(E3.x>ship.x-20&&E3.x<ship.x+20&&E3.y>ship.y-20&&E3.y<ship.y+20){
+          alert("Perdiste");
+          delete E3;
+          E3=new enemy;
+          score=0;
+          document.getElementById('output').innerHTML = score;
+          keyboard=[false,false,false,false];
+        }
+        if(E4.x>ship.x-20&&E4.x<ship.x+20&&E4.y>ship.y-20&&E4.y<ship.y+20){
+          alert("Perdiste");
+          delete E4;
+          E4=new enemy;
+          score=0;
+          document.getElementById('output').innerHTML = score;
+          keyboard=[false,false,false,false];
+        }
+
+        setTimeout(gameloop, 1);
+      }
+      gameloop();
+
+    </script>
+    <p class="score">Score:</p><p class="score"id="output"></p>
+    <section class="descripcion">
+      <h1>AVOID</h1>
+      <p>Controles: WASD. Sos el cosito blanco. Esquivá para no morir</p>
+    </section>
+  </body>
+</html>
+
+
+
+
