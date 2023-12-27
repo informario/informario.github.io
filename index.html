@@ -6,7 +6,7 @@
     <title>InforMario</title>
     <link href="styles.css" rel="stylesheet"/>
   </head>
-  <body>
+  <body onload="InitDemoTwo();">
     <div class="menu">
       <main>
         <h1>InforMario</h1>
@@ -18,6 +18,9 @@
         <p>
           <a href="/AVOID/index.html" target="_blank">Videojuego</a>
         </p>
+        <canvas id="canvas juego" width="200" height="200">
+          browser no soporta html5
+        </canvas>
         </hr>
         <section>
           <h2>amiguitos:</h2>
@@ -48,5 +51,7 @@
         </p>
       </footer>
     </div>
+		<script src="webgl/gl-matrix.js"></script>
+    <script src="webgl/app.js"></script>
   </body>
 </html>
