@@ -112,3 +112,8 @@ var InitDemo = function () {
 	gl.drawArrays(gl.TRIANGLES, 1, 3);
  
 }
+
+
+var InitDemo2 = function(){
+    
+}
